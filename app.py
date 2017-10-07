@@ -41,14 +41,9 @@ def makeWebhookResult(req):
         result = req.get("result")
         parameters = result.get("parameters")
         zone = parameters.get("ListeDesChaines")
-        #zone1 = str(zone)
-        print(zone)
         zone1 = zone[0]
-        print(zone1)
 
-        
         cost = {'c1':'TF1', 'c2':'France 2', 'c3':'France 3', 'c4':'Canal plus', 'c5':'France 5', 'c6':'M 6'}
-        print(cost[zone1])
         speech = "La chaîne " + str(cost[zone1]) + " va être lancé."
         
         zone1 = zone1.replace("c", "")
@@ -59,30 +54,23 @@ def makeWebhookResult(req):
         unite = zone2 % 10
         dizaine = (zone2 % 100) / 10
         centaine = (zone2 % 1000) / 100
-        print(centaine)
-        print(dizaine)
-        print(unite)
         
         if centaine > 0.9:
             codeA = code[centaine]
             url = url2 + codeA + '&mode=0'
             page = urllib.request.urlopen(url) 
             strpage = page.read()
-            print(url)
 
         if dizaine > 0.9:
             codeA = code[dizaine]
             url = url2 + codeA + '&mode=0'
             page = urllib.request.urlopen(url) 
             strpage = page.read()
-            print(url)
 
         codeA = code[unite]
-        print(codeA)
         url = url2 + codeA + '&mode=0'
         page = urllib.request.urlopen(url) 
         strpage = page.read()
-        print(url)
         
         print("Response:")
         print(speech)

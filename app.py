@@ -30,11 +30,12 @@ def webhook():
 
 # http://90.73.151.42:8085/remoteControl/cmd?operation=10
     liveboxIp = '90.73.151.42:8085';
-    url = 'http://' + liveboxIp + '/remoteControl/cmd?operation=';
+    # url = 'http://' + liveboxIp + '/remoteControl/cmd?operation=';
     url2 = 'http://' + liveboxIp + '/remoteControl/cmd?operation=01&key=116&mode=0';
 
 def makeWebhookResult(req):
     if req.get("result").get("action") != "livebox.Chaines":
+        url2 = 'http://' + liveboxIp + '/remoteControl/cmd?operation=01&key=116&mode=0';
         result = req.get("result")
         parameters = result.get("parameters")
         zone = parameters.get("ListeDesChaines")

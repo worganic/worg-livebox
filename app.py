@@ -34,11 +34,11 @@ def webhook():
     url2 = 'http://' + liveboxIp + '/remoteControl/cmd?operation=01&key=116&mode=0';
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "livebox.ListeDesChaines":
+    if req.get("result").get("action") != "livebox.Chaines":
         result = req.get("result")
         parameters = result.get("parameters")
-        zone = parameters.get("Chaines")
-        action = parameters.get("liveboxIp.action")
+        zone = parameters.get("ListeDesChaines")
+        action = parameters.get("livebox.Chaines")
 
         cost = {'1':'TF1', '2':'france 2', '3':'france 3', '4':'canal plus', '5':'france 5', '6':'M 6'}
         # speech = cost[zone] + " va être lancé sur votre livebox."
@@ -58,13 +58,13 @@ def makeWebhookResult(req):
             # "contextOut": [],
             "source": "apiai-worganic-livebox"
         }
-    elif req.get("result").get("action") != "livebox.Chaines":
+    elif req.get("result").get("action") != "livebox.Actions":
         result = req.get("result")
         parameters = result.get("parameters")
         zone = parameters.get("ListeDesChaines")
 
         cost = {'1':'power', '2':'tv', '3':'power', '4':'power', '5':'power', '6':'power'}
-        speech = cost[zone] + " va être lancé sur votre Livebox."
+        speech = cost[zone] + " l action à été lancé."
 
         url = url + zone;
         page = urllib.request.urlopen(url) 

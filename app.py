@@ -98,7 +98,7 @@ def makeWebhookResult(req):
     elif req.get("result").get("action") != "livebox.Actions":
         result = req.get("result")
         parameters = result.get("parameters")
-        zone = parameters.get("actions")
+        zone = parameters.get("LActions")
 
         cost = {'act1':'116', 'act2':'116', 'act3':'352', 'act4':'139', 'act5':'115', 'act6':'114'}
         speech = cost[zone] + " l action à été lancé."

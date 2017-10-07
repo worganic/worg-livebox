@@ -34,7 +34,7 @@ def webhook():
     url2 = 'http://' + liveboxIp + '/remoteControl/cmd?operation=01&key=116&mode=0';
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "livebox.Chaines":
+    if req.get("result").get("action") == "Livebox-chaine":
         liveboxIp = '90.73.151.42:8085'
         url2 = 'http://' + liveboxIp + '/remoteControl/cmd?operation=01&key=116&mode=0'
         url2 = 'http://' + liveboxIp + '/remoteControl/cmd?operation=01&key='
@@ -95,7 +95,7 @@ def makeWebhookResult(req):
             "source": "apiai-worganic-livebox",
             "urlA": url 
         }
-    elif req.get("result").get("action") != "livebox.Actions":
+    elif req.get("result").get("action") == "Livebox-action":
         result = req.get("result")
         parameters = result.get("parameters")
         zone = parameters.get("LActions")

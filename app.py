@@ -93,10 +93,10 @@ def makeWebhookResult(req):
         cost = {'act1':'116', 'act2':'116', 'act3':'352', 'act4':'139', 'act5':'115', 'act6':'114'}
         speech = "l'action à été lancé."
         
-        if parameters.get("LActionPlus") == "actP2":
-            code = cost['act5']
-        elif parameters.get("LActionPlus") == "actP1":
+        if parameters.get("LActionPlus") == "actP2":#Diminuer le volume.
             code = cost['act6']
+        elif parameters.get("LActionPlus") == "actP1":#Augmenter le volume.
+            code = cost['act5']
         else:
             code = cost[zone]
 

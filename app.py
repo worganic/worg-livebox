@@ -92,11 +92,18 @@ def makeWebhookResult(req):
 
         cost = {'act1':'116', 'act2':'116', 'act3':'352', 'act4':'139', 'act5':'115', 'act6':'114'}
         speech = "l'action à été lancé."
+        
+        if parameters.get("LActionPlus") == "actP2":
+            code = cost['act5']
+        elif parameters.get("LActionPlus") == "actP1":
+            code = cost['act6']
+        else:
+            code = cost[zone]
 
         liveboxIp = '90.73.151.42:8085'
         url2 = 'http://' + liveboxIp + '/remoteControl/cmd?operation=01&key='
         
-        url = url2 + cost[zone] + '&mode=0'
+        url = url2 + code + '&mode=0'
         page = urllib.request.urlopen(url) 
         strpage = page.read()
         

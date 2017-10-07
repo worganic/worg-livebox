@@ -50,7 +50,7 @@ def makeWebhookResult(req):
 
         url = url2 + zone1 + '&mode=0'
         page = urllib.request.urlopen(url) 
-        strpage = page.read()
+        #strpage = page.read()
         
         print("Response:")
         print(speech)

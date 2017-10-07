@@ -28,22 +28,22 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
-    freeboxIp = '82.66.190.153:8081';
-    freeboxCodeTel = '21357594';
-    url = 'http://' + freeboxIp + '/pub/remote_control?code=' + freeboxCodeTel + '&key=';
-    
-        
+# http://90.73.151.42:8085/remoteControl/cmd?operation=10
+    liveboxIp = '90.73.151.42:8085';
+    url = 'http://' + freeboxIp + '/remoteControl/cmd?operation=';
+    url2 = 'http://' + freeboxIp + '/remoteControl/cmd?operation=01&key=116&mode=0';
+
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "freebox.chaines":
+    if req.get("result").get("action") != "livebox.ListeDesChaines":
         result = req.get("result")
         parameters = result.get("parameters")
         zone = parameters.get("Chaines")
         action = parameters.get("freebox.action")
 
         cost = {'1':'TF1', '2':'france 2', '3':'france 3', '4':'canal plus', '5':'france 5', '6':'M 6'}
-        speech = cost[zone] + " va être lancé sur votre Freebox."
+        speech = cost[zone] + " va être lancé sur votre livebox."
 
-        url = url + zone;
+        url = url2;
         page = urllib.request.urlopen(url) 
         strpage = page.read()
         
@@ -55,12 +55,12 @@ def makeWebhookResult(req):
             "displayText": speech,
             #"data": {},
             # "contextOut": [],
-            "source": "apiai-worganic-freebox"
+            "source": "apiai-worganic-livebox"
         }
-    elif req.get("result").get("action") != "freebox.actions":
+    elif req.get("result").get("action") != "livebox.ListeDesChaines":
         result = req.get("result")
         parameters = result.get("parameters")
-        zone = parameters.get("Chaines")
+        zone = parameters.get("ListeDesChaines")
 
         cost = {'1':'power', '2':'tv', '3':'power', '4':'power', '5':'power', '6':'power'}
         speech = cost[zone] + " va être lancé sur votre Freebox."
@@ -77,7 +77,7 @@ def makeWebhookResult(req):
             "displayText": speech,
             #"data": {},
             # "contextOut": [],
-            "source": "apiai-worganic-freebox"
+            "source": "apiai-worganic-livebox"
         }
     
     else:

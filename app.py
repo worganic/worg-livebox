@@ -98,7 +98,7 @@ def makeWebhookResult(req):
         elif parameters.get("LActionPlus") == "actP1":#Augmenter le volume.
             code = cost['act5']
         else:
-            code = cost[zone]
+            code = cost[zone[0]]
 
         liveboxIp = '90.73.151.42:8085'
         url2 = 'http://' + liveboxIp + '/remoteControl/cmd?operation=01&key='

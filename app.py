@@ -61,13 +61,14 @@ def makeWebhookResult(req):
     elif req.get("result").get("action") != "livebox.Actions":
         result = req.get("result")
         parameters = result.get("parameters")
-        zone = parameters.get("ListeDesChaines")
+        zone = parameters.get("actionPlus")
+        action = parameters.get("livebox.Actions")
 
         cost = {'1':'power', '2':'tv', '3':'power', '4':'power', '5':'power', '6':'power'}
         speech = cost[zone] + " l action à été lancé."
 
-        url = url + zone;
-        page = urllib.request.urlopen(url) 
+        # url = url + zone;
+        page = urllib.request.urlopen(url2) 
         strpage = page.read()
         
         print("Response:")

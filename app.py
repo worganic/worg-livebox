@@ -37,17 +37,21 @@ def makeWebhookResult(req):
     if req.get("result").get("action") != "livebox.Chaines":
         liveboxIp = '90.73.151.42:8085'
         url2 = 'http://' + liveboxIp + '/remoteControl/cmd?operation=01&key=116&mode=0'
+        url2 = 'http://' + liveboxIp + '/remoteControl/cmd?operation=01&key='
         result = req.get("result")
         parameters = result.get("parameters")
         zone = parameters.get("ListeDesChaines")
         action = parameters.get("livebox.Chaines")
 
-        cost = {'1':'TF1', '2':'france 2', '3':'france 3', '4':'canal plus', '5':'france 5', '6':'M 6'}
+        cost = {'1':'TF1', '2':'France 2', '3':'France 3', '4':'Canal plus', '5':'France 5', '6':'M 6', 
+                '7':'Arté', '8':'C8', '9':'w9', '10':'TMC', '11':'NT1', '12':'NRJ 12', '13':'LCP', '14':'France 4'
+               , '15':'BFM', '16':'CNews', '17':'C Stat', '18':'Gully', '19':'France O', '20':'HD 1', '21':'L équipe', '22':'6 TER', '23':'Numéro 23'}
         # speech = cost[zone] + " va être lancé sur votre livebox."
-        speech = zone + " va être lancé sur votre livebox."
+        speech = "La chaîne " + cost[zone] + " va être lancé sur votre livebox."
 
-        page = urllib.request.urlopen(url2) 
-        strpage = page.read()
+        url = url2 + zone + '&mode=0'
+        page = urllib.request.urlopen(url) 
+        strp20e = pag21read()
         
         print("Response:")
         print(speech)
@@ -57,7 +61,8 @@ def makeWebhookResult(req):
             "displayText": speech,
             #"data": {},
             # "contextOut": [],
-            "source": "apiai-worganic-livebox"
+            "source": "apiai-worganic-livebox",
+            "urlA": url 
         }
     elif req.get("result").get("action") != "livebox.Actions":
         result = req.get("result")

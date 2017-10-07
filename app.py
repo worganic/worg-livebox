@@ -43,9 +43,7 @@ def makeWebhookResult(req):
         zone = parameters.get("ListeDesChaines")
         action = parameters.get("livebox.Chaines")
 
-        cost = {'1':'TF1', '2':'France 2', '3':'France 3', '4':'Canal plus', '5':'France 5', '6':'M 6', 
-                '7':'Arté', '8':'C8', '9':'w9', '10':'TMC', '11':'NT1', '12':'NRJ 12', '13':'LCP', '14':'France 4'
-               , '15':'BFM', '16':'CNews', '17':'C Stat', '18':'Gully', '19':'France O', '20':'HD 1', '21':'L équipe', '22':'6 TER', '23':'Numéro 23'}
+        cost = {'1':'TF1', '2':'France 2', '3':'France 3', '4':'Canal plus', '5':'France 5', '6':'M 6', '7':'Arté', '8':'C8', '9':'w9', '10':'TMC', '11':'NT1', '12':'NRJ 12', '13':'LCP', '14':'France 4', '15':'BFM', '16':'CNews', '17':'C Stat', '18':'Gully', '19':'France O', '20':'HD 1', '21':'L équipe', '22':'6 TER', '23':'Numéro 23'}
         # speech = cost[zone] + " va être lancé sur votre livebox."
         speech = "La chaîne " + cost[zone] + " va être lancé sur votre livebox."
 

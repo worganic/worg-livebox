@@ -42,7 +42,7 @@ def makeWebhookResult(req):
         parameters = result.get("parameters")
         zone = parameters.get("ListeDesChaines")
         #zone1 = str(zone)
-    
+        zone = 'Amerique du nord'
         print(zone)
         print(str(zone))
         

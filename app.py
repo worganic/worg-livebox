@@ -41,13 +41,14 @@ def makeWebhookResult(req):
         result = req.get("result")
         parameters = result.get("parameters")
         zone = parameters.get("ListeDesChaines")
-        print(zone)
+        zone1 = str(zone)
+        print(zone1)
         
-        #cost = {'1':'100', '2':'TF1', '3':'300', '4':'400', '5':'500'}
-        speech = "La chaîne /" + str(zone) + "/ va être lancé."
+        cost = {'1':'100', '2':'TF1', '3':'300', '4':'400', '5':'500'}
+        speech = "La chaîne /" + cost[zone1] + "/ va être lancé."
         
 
-        url = url2 + str(zone) + '&mode=0'
+        url = url2 + zone1 + '&mode=0'
         page = urllib.request.urlopen(url) 
         strpage = page.read()
         

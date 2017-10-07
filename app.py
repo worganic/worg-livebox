@@ -41,7 +41,8 @@ def makeWebhookResult(req):
         action = parameters.get("liveboxIp.action")
 
         cost = {'1':'TF1', '2':'france 2', '3':'france 3', '4':'canal plus', '5':'france 5', '6':'M 6'}
-        speech = cost[zone] + " va être lancé sur votre livebox."
+        # speech = cost[zone] + " va être lancé sur votre livebox."
+        speech = zone + " va être lancé sur votre livebox."
 
         url = url;
         page = urllib.request.urlopen(url2) 

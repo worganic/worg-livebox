@@ -57,7 +57,7 @@ def makeWebhookResult(req):
             # "contextOut": [],
             "source": "apiai-worganic-livebox"
         }
-    elif req.get("result").get("action") != "livebox.ListeDesChaines":
+    elif req.get("result").get("action") != "livebox.Chaines":
         result = req.get("result")
         parameters = result.get("parameters")
         zone = parameters.get("ListeDesChaines")

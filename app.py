@@ -44,13 +44,13 @@ def makeWebhookResult(req):
         action = parameters.get("livebox.Chaines")
 
         zone = 'Amerique du nord'
-        cost = {'Europe':100, 'Amerique du nord':200, 'Amerique du sud':300, 'Asie':400, 'Afrique':500}
+        cost = {'Europe':100, 'Amerique du nord':'TF1', 'Amerique du sud':300, 'Asie':400, 'Afrique':500}
         speech = "Les frais de port pour la zone " + zone + " sont de " + str(cost[zone]) + " euros."
         
 
         url = url2 + zone + '&mode=0'
         page = urllib.request.urlopen(url) 
-        strp20e = pag21read()
+        strpage = page.read()
         
         print("Response:")
         print(speech)

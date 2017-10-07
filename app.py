@@ -37,14 +37,14 @@ def makeWebhookResult(req):
     if req.get("result").get("action") != "livebox.ListeDesChaines":
         result = req.get("result")
         parameters = result.get("parameters")
-        zone = parameters.get("Chaines")
+        zone = parameters.get("ListeDesChaines")
         action = parameters.get("freebox.action")
 
         cost = {'1':'TF1', '2':'france 2', '3':'france 3', '4':'canal plus', '5':'france 5', '6':'M 6'}
         speech = cost[zone] + " va être lancé sur votre livebox."
 
-        url = url2;
-        page = urllib.request.urlopen(url) 
+        url = url;
+        page = urllib.request.urlopen(url2) 
         strpage = page.read()
         
         print("Response:")

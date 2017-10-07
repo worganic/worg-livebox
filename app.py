@@ -30,15 +30,15 @@ def webhook():
 
 # http://90.73.151.42:8085/remoteControl/cmd?operation=10
     liveboxIp = '90.73.151.42:8085';
-    url = 'http://' + freeboxIp + '/remoteControl/cmd?operation=';
-    url2 = 'http://' + freeboxIp + '/remoteControl/cmd?operation=01&key=116&mode=0';
+    url = 'http://' + liveboxIp + '/remoteControl/cmd?operation=';
+    url2 = 'http://' + liveboxIp + '/remoteControl/cmd?operation=01&key=116&mode=0';
 
 def makeWebhookResult(req):
     if req.get("result").get("action") != "livebox.ListeDesChaines":
         result = req.get("result")
         parameters = result.get("parameters")
-        zone = parameters.get("ListeDesChaines")
-        action = parameters.get("freebox.action")
+        zone = parameters.get("Chaines")
+        action = parameters.get("liveboxIp.action")
 
         cost = {'1':'TF1', '2':'france 2', '3':'france 3', '4':'canal plus', '5':'france 5', '6':'M 6'}
         speech = cost[zone] + " va être lancé sur votre livebox."

@@ -42,6 +42,7 @@ def makeWebhookResult(req):
         parameters = result.get("parameters")
         zone = parameters.get("ListeDesChaines")
         #zone1 = str(zone)
+        zone = 3
         print(zone)
         
         cost = {'1':'100', '2':'TF1', '3':'300', '4':'400', '5':'500'}

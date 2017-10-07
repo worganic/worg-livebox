@@ -63,7 +63,7 @@ def makeWebhookResult(req):
         zone = parameters.get("ListeDesChaines")
 
         cost = {'1':'power', '2':'tv', '3':'power', '4':'power', '5':'power', '6':'power'}
-        speech = cost[zone] + " va être lancé sur votre Freebox."
+        speech = cost[zone] + " va être lancé sur votre Livebox."
 
         url = url + zone;
         page = urllib.request.urlopen(url) 

@@ -47,9 +47,9 @@ def makeWebhookResult(req):
         print(zone1)
 
         
-        cost = {'Europe':100, 'Amerique du nord':200, 'Amerique du sud':300, 'Asie':400, 'Afrique':500}
+        cost = {'c1':'TF1', 'c2':'France 2', 'c3':'France 3', 'c4':'Canal plus', 'c5':'France 5', 'c6':'M 6'}
         print(cost[zone1])
-        speech = "La chaîne /" + str(cost[zone1]) + "/ va être lancé."
+        speech = "La chaîne " + str(cost[zone1]) + " va être lancé."
         
 
         url = url2 + str(zone1) + '&mode=0'

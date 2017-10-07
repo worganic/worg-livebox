@@ -42,10 +42,10 @@ def makeWebhookResult(req):
         parameters = result.get("parameters")
         zone = parameters.get("ListeDesChaines")
         #zone1 = str(zone)
-        zone = '3'
+    
         print(zone)
         
-        cost = {'1':'100', '2':'TF1', '3':'300', '4':'400', '5':'500'}
+        cost = {'c1':'100', 'c2':'TF1', 'c3':'300', 'c4':'400', 'c5':'500'}
         print(cost[zone])
         speech = "La chaîne /" + str(cost[zone]) + "/ va être lancé."
         

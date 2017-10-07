@@ -44,6 +44,7 @@ def makeWebhookResult(req):
         #zone1 = str(zone)
     
         print(zone)
+        print(str(zone))
         
         cost = {'c1':'100', 'c2':'TF1', 'c3':'300', 'c4':'400', 'c5':'500'}
         print(cost[zone])

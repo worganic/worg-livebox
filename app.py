@@ -52,10 +52,33 @@ def makeWebhookResult(req):
         speech = "La chaîne " + str(cost[zone1]) + " va être lancé."
         
         zone1.replace("c", "")
+        zone2 = int(zone1)
 
-        url = url2 + zone1 + '&mode=0'
+        code = {'512':'0', '513':'1', '514':'2', '515':'3', '516':'4', '517':'5', '518':'6', '519':'7', '520':'8', '521':'9'}
+
+        unite = zone2 % 10
+        dizaine = (zone2 % 100) / 10
+        centaine = (zone2 % 1000) / 100
+
+        if centaine > 0:
+            codeA = code[centaine]
+            url = url2 + codeA + '&mode=0'
+            page = urllib.request.urlopen(url) 
+            #strpage = page.read()
+            print(url)
+
+        if dizaine > 0:
+            codeA = code[dizaine]
+            url = url2 + codeA + '&mode=0'
+            page = urllib.request.urlopen(url) 
+            #strpage = page.read()
+            print(url)
+
+        codeA = code[dizaine]
+        url = url2 + codeA + '&mode=0'
         page = urllib.request.urlopen(url) 
         #strpage = page.read()
+        print(url)
         
         print("Response:")
         print(speech)

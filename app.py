@@ -44,7 +44,7 @@ def makeWebhookResult(req):
         #zone1 = str(zone)
         print(zone)
         
-        cost = {'1':'100', '2':'TF1', '3':'300', '4':'400', '5':'500'}
+        cost = {1:'100', 2:'TF1', 3:'300', '4':'400', '5':'500'}
         speech = "La chaîne /" + cost[zone] + "/ va être lancé."
         
 

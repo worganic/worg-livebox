@@ -54,7 +54,7 @@ def makeWebhookResult(req):
         zone1 = zone1.replace("c", "")
         zone2 = int(zone1)
 
-        code = {'512':'0', '513':'1', '514':'2', '515':'3', '516':'4', '517':'5', '518':'6', '519':'7', '520':'8', '521':'9'}
+        code = {'0':'512', '1':'513', '2':'514', '3':'515', '4':'516', '5':'517', '6':'518', '7':'519', '8':'520', '9':'521'}
 
         unite = zone2 % 10
         dizaine = (zone2 % 100) / 10
@@ -74,7 +74,7 @@ def makeWebhookResult(req):
             #strpage = page.read()
             print(url)
 
-        codeA = code[dizaine]
+        codeA = code[unite]
         url = url2 + codeA + '&mode=0'
         page = urllib.request.urlopen(url) 
         #strpage = page.read()

@@ -1,7 +1,7 @@
 {
-  "name": "API.AI Shipping Costs Webhook",
-  "description": "API.AI Shipping Costs Webhook Sapmple",
-  "repository": "https://github.com/svet4/shipping-costs-sample",
+  "name": "API.AI Gestion de votre Livebox",
+  "description": "API.AI Gestion de votre Livebox - Version 1",
+  "repository": "https://github.com/worganic/worg-livebox",
   "logo": "http://xvir.github.io/img/apiai.png",
-  "keywords": ["api.ai", "natural language"]
+  "keywords": ["api.ai", "livebox"]
 }

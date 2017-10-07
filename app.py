@@ -43,10 +43,10 @@ def makeWebhookResult(req):
         zone = parameters.get("ListeDesChaines")
         action = parameters.get("livebox.Chaines")
 
-        cost = {'1':'TF1', '2':'France 2', '3':'France 3', '4':'Canal plus', '5':'France 5', '6':'M 6'}
-        cost2 = {'1':100, '2':200, '3':300, '4':400, '5':500}
-        # speech = cost[zone] + " va être lancé sur votre livebox."
-        speech = "La chaîne " + str(cost2[zone]) + " va être lancé sur votre livebox."
+        zone = 'Amerique du nord'
+        cost = {'Europe':100, 'Amerique du nord':200, 'Amerique du sud':300, 'Asie':400, 'Afrique':500}
+        speech = "Les frais de port pour la zone " + zone + " sont de " + str(cost[zone]) + " euros."
+        
 
         url = url2 + zone + '&mode=0'
         page = urllib.request.urlopen(url) 

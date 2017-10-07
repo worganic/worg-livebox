@@ -41,9 +41,9 @@ def makeWebhookResult(req):
         result = req.get("result")
         parameters = result.get("parameters")
         zone = parameters.get("ListeDesChaines")
-        action = parameters.get("livebox.Chaines")
-        cost = {'1':100, '2':'TF1', '3':300, '4':400, '5':500}
-        speech = "La chaîne /" + zone + "/ va être lancé."
+        
+        cost = {'1':'100', '2':'TF1', '3':'300', '4':'400', '5':'500'}
+        speech = "La chaîne /" + str(zone) + "/ va être lancé."
         
 
         url = url2 + zone + '&mode=0'

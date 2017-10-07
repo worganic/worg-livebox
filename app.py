@@ -51,7 +51,7 @@ def makeWebhookResult(req):
         print(cost[zone1])
         speech = "La chaîne " + str(cost[zone1]) + " va être lancé."
         
-        zone1.replace("c", "")
+        zone1 = zone1.replace("c", "")
         zone2 = int(zone1)
 
         code = {'512':'0', '513':'1', '514':'2', '515':'3', '516':'4', '517':'5', '518':'6', '519':'7', '520':'8', '521':'9'}

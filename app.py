@@ -51,8 +51,9 @@ def makeWebhookResult(req):
         print(cost[zone1])
         speech = "La chaîne " + str(cost[zone1]) + " va être lancé."
         
+        zone1.replace("c", "")
 
-        url = url2 + str(zone1) + '&mode=0'
+        url = url2 + zone1 + '&mode=0'
         page = urllib.request.urlopen(url) 
         #strpage = page.read()
         

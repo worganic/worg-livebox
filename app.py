@@ -44,7 +44,6 @@ def makeWebhookResult(req):
         # speech = cost[zone] + " va être lancé sur votre livebox."
         speech = zone + " va être lancé sur votre livebox."
 
-        url = url;
         page = urllib.request.urlopen(url2) 
         strpage = page.read()
         

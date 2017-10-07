@@ -60,6 +60,8 @@ def makeWebhookResult(req):
         dizaine = (zone2 % 100) / 10
         centaine = (zone2 % 1000) / 100
         print(centaine)
+        print(dizaine)
+        print(unite)
         
         if centaine > 0.9:
             codeA = code[centaine]
@@ -76,6 +78,7 @@ def makeWebhookResult(req):
             print(url)
 
         codeA = code[unite]
+        print(codeA)
         url = url2 + codeA + '&mode=0'
         page = urllib.request.urlopen(url) 
         #strpage = page.read()

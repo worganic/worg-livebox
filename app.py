@@ -3,7 +3,8 @@
 import urllib
 import json
 import os
-
+import urllib.request
+    
 from flask import Flask
 from flask import request
 from flask import make_response
@@ -27,32 +28,64 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
+    freeboxIp = '82.66.190.153:8081';
+    freeboxCodeTel = '21357594';
+    url = 'http://' + freeboxIp + '/pub/remote_control?code=' + freeboxCodeTel + '&key=';
+    
+        
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "shipping.cost":
+    if req.get("result").get("action") != "freebox.chaines":
+        result = req.get("result")
+        parameters = result.get("parameters")
+        zone = parameters.get("Chaines")
+        action = parameters.get("freebox.action")
+
+        cost = {'1':'TF1', '2':'france 2', '3':'france 3', '4':'canal plus', '5':'france 5', '6':'M 6'}
+        speech = cost[zone] + " va être lancé sur votre Freebox."
+
+        url = url + zone;
+        page = urllib.request.urlopen(url) 
+        strpage = page.read()
+        
+        print("Response:")
+        print(speech)
+
+        return {
+            "speech": speech,
+            "displayText": speech,
+            #"data": {},
+            # "contextOut": [],
+            "source": "apiai-worganic-freebox"
+        }
+    elif req.get("result").get("action") != "freebox.actions":
+        result = req.get("result")
+        parameters = result.get("parameters")
+        zone = parameters.get("Chaines")
+
+        cost = {'1':'power', '2':'tv', '3':'power', '4':'power', '5':'power', '6':'power'}
+        speech = cost[zone] + " va être lancé sur votre Freebox."
+
+        url = url + zone;
+        page = urllib.request.urlopen(url) 
+        strpage = page.read()
+        
+        print("Response:")
+        print(speech)
+
+        return {
+            "speech": speech,
+            "displayText": speech,
+            #"data": {},
+            # "contextOut": [],
+            "source": "apiai-worganic-freebox"
+        }
+    
+    else:
         return {}
-    result = req.get("result")
-    parameters = result.get("parameters")
-    zone = parameters.get("shipping-zone")
-
-    cost = {'Europe':100, 'North America':200, 'South America':300, 'Asia':400, 'Africa':500}
-
-    speech = "The cost of shipping to " + zone + " is " + str(cost[zone]) + " euros."
-
-    print("Response:")
-    print(speech)
-
-    return {
-        "speech": speech,
-        "displayText": speech,
-        #"data": {},
-        # "contextOut": [],
-        "source": "apiai-onlinestore-shipping"
-    }
-
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
 
-    print "Starting app on port %d" % port
+   # print "Starting app on port %d" % port
 
     app.run(debug=True, port=port, host='0.0.0.0')

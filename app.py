@@ -99,6 +99,8 @@ def makeWebhookResult(req):
         result = req.get("result")
         parameters = result.get("parameters")
         zone = parameters.get("LActions")
+        print(zone)
+        print(zone[0])
 
         cost = {'act1':'116', 'act2':'116', 'act3':'352', 'act4':'139', 'act5':'115', 'act6':'114'}
         speech = cost[zone] + " l action à été lancé."

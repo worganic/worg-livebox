@@ -1,7 +1,7 @@
 {
-  "name": "API.AI Gestion de votre Livebox",
-  "description": "API.AI Gestion de votre Livebox - Version 1",
-  "repository": "https://github.com/worganic/worg-livebox",
+  "name": "API.AI worg freebox Livebox",
+  "description": "API.AI worg Livebox Webhook Sapmple V1",
+  "repository": "https://github.com/worganic/worg-livebox/",
   "logo": "http://xvir.github.io/img/apiai.png",
-  "keywords": ["api.ai", "livebox"]
+  "keywords": ["api.ai", "natural language"]
 }

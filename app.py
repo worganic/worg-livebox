@@ -29,7 +29,7 @@ def webhook():
     return r
 
 # http://90.73.151.42:8085/remoteControl/cmd?operation=10
-    liveboxIp = '90.73.151.42:8085';
+    liveboxIp = '90.73.15.218:8085';
     # url = 'http://' + liveboxIp + '/remoteControl/cmd?operation=';
     url2 = 'http://' + liveboxIp + '/remoteControl/cmd?operation=01&key=116&mode=0';
 

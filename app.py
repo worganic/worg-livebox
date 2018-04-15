@@ -35,7 +35,7 @@ def webhook():
 
 def makeWebhookResult(req):
     if req.get("result").get("action") == "Livebox-chaine":
-        liveboxIp = '90.73.151.42:8085'
+        liveboxIp = '90.73.15.218:8085';
         url2 = 'http://' + liveboxIp + '/remoteControl/cmd?operation=01&key=116&mode=0'
         url2 = 'http://' + liveboxIp + '/remoteControl/cmd?operation=01&key='
         result = req.get("result")
